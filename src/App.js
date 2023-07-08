@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import realmsLogo from './images/iAppbeats_Realms.png'
+import realmsLogoWhite from './images/iAppbeats_Realms_white.png'
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom'
@@ -12,7 +13,6 @@ import { Docs } from './pages/Docs';
 import { Itempreview } from './pages/Itempreview';
 import { Games } from './pages/Games';
 import { GameCard } from './components/GameCard';
-import PersistentDrawerLeft from './components/PersistentDrawerLeft';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -74,7 +74,7 @@ function App() {
   const [open, setOpen] = React.useState(false);
 
   const linkStyle = {
-    color: darkTheme.palette.mode === 'light' ? darkTheme.palette.primary.dark : darkTheme.palette.primary.light,
+    color: darkTheme.palette.mode === 'dark' ? darkTheme.palette.primary.dark : darkTheme.palette.primary.light,
     textDecoration: 'none'
   }
 
@@ -125,11 +125,13 @@ function App() {
     justifyContent: 'flex-end',
   }));
 
-  const handleDrawerOpen = () => {
+  const handleDrawerOpen = (e) => {
+    e.preventDefault();
     setOpen(true);
   };
 
-  const handleDrawerClose = () => {
+  const handleDrawerClose = (e) => {
+    e.preventDefault();
     setOpen(false);
   };
 
@@ -142,15 +144,14 @@ function App() {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={handleDrawerOpen}
+              onClick={(e) => handleDrawerOpen(e)}
               edge="start"
               sx={{ mr: 2, ...(open && { display: 'none' }) }}
             >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              {/* <img src={realmsLogo} alt='application logo' width={200} height={32} style={{ margin: 5 }}/> */}
-              iAppbeats Realms
+              <img src={realmsLogoWhite} alt='application logo' width={200} height={32} style={{ marginTop: 2 }}/>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -168,7 +169,7 @@ function App() {
           open={open}
         >
           <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton onClick={(e) => handleDrawerClose(e)}>
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
           </DrawerHeader>
