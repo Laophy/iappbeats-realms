@@ -12,12 +12,14 @@ import { Docs } from './pages/Docs';
 import { Itempreview } from './pages/Itempreview';
 import { Games } from './pages/Games';
 import { GameCard } from './components/GameCard';
+import PersistentDrawerLeft from './components/PersistentDrawerLeft';
 
 function App() {
   return (
     <div className="App">
       <nav>
-        <img src={realmsLogo} alt='application logo' width={750} height={90} style={{ margin: 5 }}/>
+        {/* <img src={realmsLogo} alt='application logo' width={750} height={90} style={{ margin: 5 }}/> */}
+        <PersistentDrawerLeft />
       </nav>
       <Routes>
         <Route path="*" element={<NotFound />}/>
