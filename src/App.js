@@ -71,7 +71,7 @@ function App() {
   });
 
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const linkStyle = {
     color: darkTheme.palette.mode === 'dark' ? darkTheme.palette.primary.dark : darkTheme.palette.primary.light,
