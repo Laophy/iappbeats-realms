@@ -1,9 +1,11 @@
 import React from "react"
+import { GameCard } from "../components/GameCard"
 
 export function Itempreview() {
     return (
-        <React.Fragment>
+        <>
             <h1>Item Previewer</h1>
-        </React.Fragment>
+            <GameCard gameURL={'https://iappsbeats.com/itempreview/index.html'}/>
+        </>
     )
 }
