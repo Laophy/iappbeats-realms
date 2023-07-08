@@ -1,9 +1,10 @@
 import React from "react"
+import SignIn from "../components/Signin"
 
 export function Home() {
     return (
         <>
-            <h1>Home Page </h1>
+            <SignIn />
         </>
     )
 }

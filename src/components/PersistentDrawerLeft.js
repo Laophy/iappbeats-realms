@@ -19,8 +19,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 
 import HomeIcon from '@mui/icons-material/Home';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
@@ -87,7 +85,7 @@ export default function PersistentDrawerLeft() {
     const [open, setOpen] = React.useState(false);
 
     const linkStyle = {
-        color: 'black',
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
         textDecoration: 'none'
     }
 
