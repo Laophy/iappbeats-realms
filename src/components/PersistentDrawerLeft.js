@@ -235,6 +235,49 @@ export default function PersistentDrawerLeft() {
                 </List>
                 <Divider />
                 <List>
+                    <Link to="/messages" style={linkStyle}>
+                        <ListItem key={'Messages'} disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <ManageAccountsIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Messages'} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                    <Link to="/friends" style={linkStyle}>
+                        <ListItem key={'Friends'} disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <SettingsIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Friends'} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                    <Link to="/clans" style={linkStyle}>
+                        <ListItem key={'Clans'} disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <SettingsIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Global Clans'} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                    <Link to="/createworld" style={linkStyle}>
+                        <ListItem key={'Create'} disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <LoginIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Create World'} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                </List>
+                <Divider />
+                <List>
                     <Link to="/account" style={linkStyle}>
                         <ListItem key={'Account'} disablePadding>
                             <ListItemButton>
