@@ -6,13 +6,16 @@ export function GameCard ({ gameURL }) {
         marginLeft: 'auto',
         marginRight: 'auto',
         display: 'block',
-        width: '80vw',
-        height: '80vh',
-        border: 'none',
+        width: '95%',
+        height: '100%',
+        minHeight: '85vh',
+        border: '2px solid black',
+        borderRadius: 25,
+        boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
     }
     return (
         <>
-            <iframe style={frameStyle} title="GameCard" id="iframe" class="iframe" src={gameURL} allowfullscreen="true" allow="fullscreen"></iframe>
+            <iframe style={frameStyle} title="GameCard" id="iframe" className="iframe" src={gameURL} allowFullScreen="true" allow="fullscreen"></iframe>
         </>
     )
 }

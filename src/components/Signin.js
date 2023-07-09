@@ -1,5 +1,4 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
+import * as React from 'react'
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -7,13 +6,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import {Link} from 'react-router-dom';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { ThemeProvider, useTheme } from '@mui/material/styles';
 
-import realmsLogo from '../images/iAppbeats_Realms.png'
+import realmsLogo from '../images/iAppbeats_Logo_2.png'
 
 function Copyright(props) {
     return (
@@ -53,7 +51,7 @@ export default function SignIn() {
                     }}
                 >
                     <Typography component="h1" variant="h5">
-                        <img src={realmsLogo} alt='application logo' width={390} height={70} style={{ margin: 5 }}/>
+                        <img src={realmsLogo} alt='application logo' width={'80%'} height={'100%'} style={{ margin: 5 }}/>
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
