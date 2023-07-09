@@ -15,11 +15,12 @@ export function SimilarGamesRow() {
                 '& > :not(style)': {
                     p: 1,
                     width: '100%',
-                    borderRadius: 10
+                    borderRadius: 10,
+                    marginBottom: 5
                 },
             }}
         >
-            <Paper elevation={6} style={{ marginTop: 15 }}>
+            <Paper elevation={4} style={{ marginTop: 15 }}>
                 <Box p={1} style={{ textAlign: 'left', margin: 20 }}>
                     <Typography variant="h3">Similar Games</Typography>
                     <Grid sx={{ flexGrow: 1, marginTop: 5 }} container spacing={2}>

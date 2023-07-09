@@ -26,9 +26,15 @@ import DescriptionIcon from '@mui/icons-material/Description';
 
 import GamepadIcon from '@mui/icons-material/Gamepad';
 
+import HomeIcon from '@mui/icons-material/Home';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LoginIcon from '@mui/icons-material/Login';
+
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import MessageIcon from '@mui/icons-material/Message';
+import Groups2Icon from '@mui/icons-material/Groups2';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 import { Link } from 'react-router-dom';
 
@@ -164,7 +170,7 @@ export default function MiniDrawer({ content }) {
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    <MailIcon />
+                                    <HomeIcon />
                                 </ListItemIcon>
                                 <ListItemText primary={'Home'} sx={{ opacity: open ? 1 : 0 }} />
                             </ListItemButton>
@@ -367,7 +373,7 @@ export default function MiniDrawer({ content }) {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        <SettingsIcon />
+                                        <PersonAddAlt1Icon />
                                     </ListItemIcon>
                                     <ListItemText primary={'Friends'} sx={{ opacity: open ? 1 : 0 }} />
                                 </ListItemButton>
@@ -389,7 +395,7 @@ export default function MiniDrawer({ content }) {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        <ManageAccountsIcon />
+                                        <MessageIcon />
                                     </ListItemIcon>
                                     <ListItemText primary={'Messages'} sx={{ opacity: open ? 1 : 0 }} />
                                 </ListItemButton>
@@ -411,9 +417,9 @@ export default function MiniDrawer({ content }) {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        <SettingsIcon />
+                                        <Groups2Icon />
                                     </ListItemIcon>
-                                    <ListItemText primary={'Clan'} sx={{ opacity: open ? 1 : 0 }} />
+                                    <ListItemText primary={'Clans'} sx={{ opacity: open ? 1 : 0 }} />
                                 </ListItemButton>
                             </ListItem>
                         </Link>
@@ -433,12 +439,13 @@ export default function MiniDrawer({ content }) {
                                             justifyContent: 'center',
                                         }}
                                     >
-                                        <LoginIcon />
+                                        <BorderColorIcon />
                                     </ListItemIcon>
                                     <ListItemText primary={'Create World'} sx={{ opacity: open ? 1 : 0 }} />
                                 </ListItemButton>
                             </ListItem>
                         </Link>
+                        <Divider />
                         <Link to="/account" style={linkStyle}>
                             <ListItem key={'Account'} disablePadding sx={{ display: 'block' }}>
                                 <ListItemButton
@@ -508,7 +515,7 @@ export default function MiniDrawer({ content }) {
                     </List>
                 </List>
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 1 }}>
+            <Box component="main" sx={{ flexGrow: 1, p: 2 }}>
                 <DrawerHeader />
                 {content}
             </Box>

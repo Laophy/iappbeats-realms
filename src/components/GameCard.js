@@ -9,12 +9,12 @@ export function GameCard({ gameURL, gameInfo }) {
         marginLeft: 'auto',
         marginRight: 'auto',
         display: 'block',
-        width: '95%',
+        width: '100%',
         height: '100%',
         minHeight: '85vh',
-        border: '2px solid black',
+        border: 'none',
         borderRadius: 25,
-        boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
+        boxShadow: 'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px',
     }
     return (
         <div>

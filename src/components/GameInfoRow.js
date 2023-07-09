@@ -15,7 +15,7 @@ export function GameInfoRow({ gameCard, gameInfo }) {
                 },
             }}
         >
-            <Paper elevation={6}>
+            <Paper elevation={4}>
                 <Box p={1} style={{ textAlign: 'left', margin: 5 }}>
                     {gameCard}
                     <Typography variant="h2" sx={{ mt: 2 }}>{gameInfo?.name}</Typography>
