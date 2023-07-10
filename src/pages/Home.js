@@ -10,6 +10,7 @@ import Grid from '@mui/material/Grid';
 import { FriendsList } from "../components/FriendsList";
 import { NewsSideBar } from "../components/NewsSideBar";
 import { RecentGames } from "../components/RecentGames";
+import { GameRowCategory } from "../components/GameRowCategory";
 
 export function Home() {
     const theme = useTheme();
@@ -36,6 +37,10 @@ export function Home() {
                     </Box>
                     <FriendsList />
                     <RecentGames />
+                    <GameRowCategory category={'Survival'}/>
+                    <GameRowCategory category={'Action'}/>
+                    <GameRowCategory category={'Role Play'}/>
+                    <GameRowCategory category={'Sandbox'}/>
                 </Grid>
                 <Grid item xs={3}>
                     <NewsSideBar />

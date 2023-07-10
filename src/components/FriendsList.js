@@ -68,6 +68,13 @@ export function FriendsList() {
                             <Typography variant="p">Ether Arena</Typography><br />
                         </Box>
                     </Paper>
+                    <Paper elevation={4} sx={{ borderRadius: 5, width: '25%', margin: 1}}>
+                        <Box p={1} style={{ textAlign: 'center', margin: 5}}>
+                            <Avatar alt="Laophy" src={'https://i.imgur.com/FQvWrpu.png'} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
+                            <Typography variant="h6" sx={{ mt: 2 }}>Pocket</Typography>
+                            <Typography variant="p">Testbed</Typography><br />
+                        </Box>
+                    </Paper>
                 </Box>
             </Box>
         </Box>
