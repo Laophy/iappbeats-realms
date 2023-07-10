@@ -35,35 +35,35 @@ export function FriendsList() {
                 }}>
                     <Paper elevation={4} sx={{ borderRadius: 5, width: '25%', margin: 1}}>
                         <Box p={1} style={{ textAlign: 'center', margin: 5}}>
-                            <Avatar alt="Laophy" src={AvatarHead} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
+                            <Avatar alt="Laophy" src={'https://i.imgur.com/RSQTZNb.png'} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
                             <Typography variant="h6" sx={{ mt: 2 }}>Shiz</Typography>
                             <Typography variant="p">Etherion Online</Typography><br />
                         </Box>
                     </Paper>
                     <Paper elevation={4} sx={{ borderRadius: 5, width: '25%', margin: 1}}>
                         <Box p={1} style={{ textAlign: 'center', margin: 5}}>
-                            <Avatar alt="Laophy" src={AvatarHead} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
+                            <Avatar alt="Laophy" src={'https://i.imgur.com/ZRea9UL.gif'} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
                             <Typography variant="h6" sx={{ mt: 2 }}>Laophy</Typography>
                             <Typography variant="p">Corleone Online</Typography><br />
                         </Box>
                     </Paper>
                     <Paper elevation={4} sx={{ borderRadius: 5, width: '25%', margin: 1}}>
                         <Box p={1} style={{ textAlign: 'center', margin: 5}}>
-                            <Avatar alt="Laophy" src={AvatarHead} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
-                            <Typography variant="h6" sx={{ mt: 2 }}>Laophy</Typography>
+                            <Avatar alt="Laophy" src={'https://i.imgur.com/8ykfgQH.gif'} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
+                            <Typography variant="h6" sx={{ mt: 2 }}>Stefan Knorr</Typography>
                             <Typography variant="p">Avalonia Online</Typography><br />
                         </Box>
                     </Paper>
                     <Paper elevation={4} sx={{ borderRadius: 5, width: '25%', margin: 1}}>
                         <Box p={1} style={{ textAlign: 'center', margin: 5}}>
-                            <Avatar alt="Laophy" src={AvatarHead} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
+                            <Avatar alt="Laophy" src={'https://i.imgur.com/eHe6hED.png'} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
                             <Typography variant="h6" sx={{ mt: 2 }}>Nico</Typography>
                             <Typography variant="p">Kingdom Tribes</Typography><br />
                         </Box>
                     </Paper>
                     <Paper elevation={4} sx={{ borderRadius: 5, width: '25%', margin: 1}}>
                         <Box p={1} style={{ textAlign: 'center', margin: 5}}>
-                            <Avatar alt="Laophy" src={AvatarHead} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
+                            <Avatar alt="Laophy" src={'https://i.imgur.com/XiIUq9Q.gif'} sx={{ width: 64, height: 64, marginLeft: 'auto', marginRight: 'auto', display: 'flex' }} />
                             <Typography variant="h6" sx={{ mt: 2 }}>Duke</Typography>
                             <Typography variant="p">Ether Arena</Typography><br />
                         </Box>

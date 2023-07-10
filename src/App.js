@@ -30,7 +30,7 @@ function App() {
       mode: 'light',
       primary: {
         light: '#515151',
-        main: '#757575',
+        main: '#a6b5bd',
         dark: '#b3b3b3',
         contrastText: '#fff',
       },

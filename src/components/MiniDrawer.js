@@ -145,7 +145,7 @@ export default function MiniDrawer({ content }) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        <img src={Logo} alt='Logo' width={'100%'} height={50} style={{ margin: -5, marginTop: 1 }} />
+                        iAppbeats Realms{/* <img src={Logo} alt='Logo' width={'100%'} height={50} style={{ margin: -5, marginTop: 1 }} /> */}
                     </Typography>
                 </Toolbar>
             </AppBar>
