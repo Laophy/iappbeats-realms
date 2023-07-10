@@ -16,7 +16,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import AnimationIcon from '@mui/icons-material/Animation';
@@ -36,30 +35,34 @@ import MessageIcon from '@mui/icons-material/Message';
 import Groups2Icon from '@mui/icons-material/Groups2';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
+import ListSubheader from '@mui/material/ListSubheader';
+
 import { Link } from 'react-router-dom';
 
 import Logo from '../images/iAppbeats_Logo_2.png'
 
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 const openedMixin = (theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
+        duration: 400,
     }),
     overflowX: 'hidden',
+    overflowY: 'hidden',
 });
 
 const closedMixin = (theme) => ({
     transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
+        duration: 400,
     }),
     overflowX: 'hidden',
-    width: `calc(${theme.spacing(7)} + 1px)`,
+    overflowY: 'hidden',
+    width: `calc(${theme.spacing(7)} + 3px)`,
     [theme.breakpoints.up('sm')]: {
-        width: `calc(${theme.spacing(8)} + 1px)`,
+        width: `calc(${theme.spacing(8)} + 3px)`,
     },
 });
 
@@ -78,14 +81,14 @@ const AppBar = styled(MuiAppBar, {
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
+        duration: 400
     }),
     ...(open && {
         marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
+            duration: 400,
         }),
     }),
 }));
@@ -142,7 +145,7 @@ export default function MiniDrawer({ content }) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        <img src={Logo} alt='Logo' width={'100%'} height={50} style={{ margin: -5, marginTop: 1 }}/>
+                        <img src={Logo} alt='Logo' width={'100%'} height={50} style={{ margin: -5, marginTop: 1 }} />
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -289,6 +292,11 @@ export default function MiniDrawer({ content }) {
                 </List>
                 <Divider />
                 <List>
+                    <ListItem key={'Avalonia'} disablePadding sx={{ display: 'block' }}>
+                        <ListSubheader component="div" inset sx={{ opacity: open ? 1 : 0 }}>
+                            Hosted Games
+                        </ListSubheader>
+                    </ListItem>
                     <Link to="/avalonia" style={linkStyle}>
                         <ListItem key={'Avalonia'} disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
