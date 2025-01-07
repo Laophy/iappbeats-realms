@@ -25,6 +25,7 @@ import {
   FiShield,
   FiAward,
 } from "react-icons/fi";
+import iAppsLogo from "../images/iappslogo.png";
 
 const Feature = ({ icon, title, description }) => {
   const bg = useColorModeValue("white", "gray.800");
@@ -78,8 +79,26 @@ export function About() {
   const bg = useColorModeValue("gray.50", "gray.900");
 
   return (
-    <Box bg={bg} py={20}>
+    <Box bg={bg}>
       <Container maxW="container.xl">
+        {/* Logo Section */}
+        <Box
+          w="full"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          py={8}
+        >
+          <Image
+            src={iAppsLogo}
+            alt="iAppbeats Logo"
+            maxW="300px"
+            w="100%"
+            filter={useColorModeValue("none", "brightness(0.8)")}
+            transition="all 0.3s"
+            _hover={{ transform: "scale(1.05)" }}
+          />
+        </Box>
         <VStack spacing={16}>
           {/* Hero Section */}
           <VStack spacing={6} textAlign="center">
@@ -87,17 +106,17 @@ export function About() {
             <Text
               fontSize="xl"
               color={useColorModeValue("gray.600", "gray.400")}
-              maxW="3xl"
+              maxW="2xl"
             >
               A next-generation gaming platform where creators and players come
               together to build, share, and experience amazing multiplayer
               worlds.
             </Text>
             <HStack spacing={4} pt={4}>
-              <Button colorScheme="blue" size="lg">
+              <Button size="lg" colorScheme="blue">
                 Get Started
               </Button>
-              <Button variant="outline" size="lg">
+              <Button size="lg" variant="outline">
                 Learn More
               </Button>
             </HStack>
@@ -105,11 +124,16 @@ export function About() {
 
           {/* Stats Section */}
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="full">
-            <Statistic
-              label="Active Players"
-              value="10K+"
-              helpText="Daily active users"
-            />
+            <Stat
+              bg={useColorModeValue("white", "gray.800")}
+              p={6}
+              borderRadius="lg"
+              boxShadow="md"
+            >
+              <StatLabel>Active Players</StatLabel>
+              <StatNumber>50,000+</StatNumber>
+              <StatHelpText>Across all worlds</StatHelpText>
+            </Stat>
             <Statistic
               label="Worlds Created"
               value="500+"
@@ -214,9 +238,9 @@ export function About() {
                 >
                   <VStack spacing={4}>
                     <Image
-                      src="https://i.imgur.com/YkkEK0w.png"
-                      alt="iAppbeats Engine"
-                      height="80px"
+                      src={iAppsLogo}
+                      alt="iAppbeats Logo"
+                      height="200px"
                       objectFit="contain"
                     />
                     <VStack spacing={1}>
