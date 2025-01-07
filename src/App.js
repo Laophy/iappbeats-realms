@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 import { Navigation } from "./components/Navigation";
 
@@ -22,8 +22,8 @@ function App() {
     <Box>
       <Navigation>
         <Routes>
+          <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/games" element={<Games />} />
           <Route path="/games/:gameId" element={<GameView />} />
           <Route path="/avalonia" element={<GameView gameId="avalonia" />} />

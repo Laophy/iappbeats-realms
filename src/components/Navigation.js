@@ -30,6 +30,7 @@ import {
   FiInfo,
   FiBook,
   FiPlay,
+  FiGrid,
 } from "react-icons/fi";
 import Logo from "../images/iAppbeats_Logo_2.png";
 
@@ -150,7 +151,7 @@ const SidebarContent = () => {
   return (
     <VStack spacing="1" align="stretch">
       <Box py="2">
-        <NavItem icon={<FiHome />} to="/home">
+        <NavItem icon={<FiHome />} to="/">
           Home
         </NavItem>
         <NavItem icon={<FiMonitor />} to="/games">
