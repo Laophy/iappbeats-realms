@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/iappbeats-realms/static/css/main.4766d9a8.css",
-    "main.js": "/iappbeats-realms/static/js/main.e83b8477.js",
+    "main.js": "/iappbeats-realms/static/js/main.3c27d8af.js",
     "static/js/496.aeec3cbc.chunk.js": "/iappbeats-realms/static/js/496.aeec3cbc.chunk.js",
     "static/media/etherion_background.jpg": "/iappbeats-realms/static/media/etherion_background.e984f830317b024ea6a4.jpg",
     "static/media/inter-latin-ext-600-normal.woff": "/iappbeats-realms/static/media/inter-latin-ext-600-normal.0acb54c755dec53de476.woff",
@@ -63,11 +63,11 @@
     "static/media/inter-vietnamese-400-normal.woff2": "/iappbeats-realms/static/media/inter-vietnamese-400-normal.44c9df135eec470b0ab6.woff2",
     "index.html": "/iappbeats-realms/index.html",
     "main.4766d9a8.css.map": "/iappbeats-realms/static/css/main.4766d9a8.css.map",
-    "main.e83b8477.js.map": "/iappbeats-realms/static/js/main.e83b8477.js.map",
+    "main.3c27d8af.js.map": "/iappbeats-realms/static/js/main.3c27d8af.js.map",
     "496.aeec3cbc.chunk.js.map": "/iappbeats-realms/static/js/496.aeec3cbc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4766d9a8.css",
-    "static/js/main.e83b8477.js"
+    "static/js/main.3c27d8af.js"
   ]
 }
