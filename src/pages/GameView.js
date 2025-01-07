@@ -9,8 +9,20 @@ export function GameView({ gameId: propGameId }) {
   const game = getGameData(gameId);
 
   if (!game) {
-    return null; // or a 404 component
+    return null;
   }
 
-  return <GameCard gameURL={game.gameUrl} gameName={game.name} />;
+  return (
+    <GameCard
+      gameURL={game.gameUrl}
+      gameName={game.name}
+      gameInfo={{
+        players: game.players,
+        rating: game.rating,
+        releaseDate: game.releaseDate,
+        creator: game.creator,
+        category: game.category,
+      }}
+    />
+  );
 }

@@ -2,63 +2,85 @@ import React from "react";
 import {
   Box,
   Image,
-  Heading,
   Text,
   VStack,
   useColorModeValue,
-  Skeleton,
+  HStack,
+  Icon,
+  Tooltip,
+  Badge,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FiUsers, FiStar, FiClock } from "react-icons/fi";
 
-export function GameCardTemplate({ name, url, image, description }) {
-  const navigate = useNavigate();
-  const bg = useColorModeValue("white", "gray.700");
-  const hoverBg = useColorModeValue("gray.50", "gray.600");
-  const textColor = useColorModeValue("gray.600", "gray.300");
+export function GameCardTemplate({
+  name,
+  url,
+  image,
+  description,
+  stats = {},
+}) {
+  const bg = useColorModeValue("white", "gray.800");
+  const hoverBg = useColorModeValue("gray.50", "gray.700");
 
-  const handleClick = () => {
-    if (url) {
-      navigate(url.startsWith("/") ? url : `/games/${url}`);
-    }
-  };
+  // Default values for stats
+  const {
+    players = "0",
+    rating = "0.0",
+    releaseDate = "TBA",
+    new: isNew = false,
+  } = stats;
 
   return (
-    <Box
-      onClick={handleClick}
-      cursor={url ? "pointer" : "default"}
-      position="relative"
-      transition="all 0.2s"
-      _hover={{
-        transform: url ? "translateY(-4px)" : "none",
-      }}
-    >
+    <Link to={url}>
       <Box
         bg={bg}
         borderRadius="lg"
         overflow="hidden"
         transition="all 0.2s"
-        boxShadow={url ? "md" : "none"}
-        _groupHover={{
-          bg: url ? hoverBg : bg,
-          boxShadow: url ? "xl" : "none",
+        _hover={{
+          transform: "translateY(-4px)",
+          shadow: "lg",
+          bg: hoverBg,
         }}
       >
-        <Box position="relative" h="200px">
-          {image ? (
-            <Image src={image} alt={name} w="100%" h="100%" objectFit="cover" />
-          ) : (
-            <Skeleton height="100%" />
-          )}
-        </Box>
-        <VStack align="start" p={4} spacing={2} position="relative" zIndex="1">
-          <Heading size="md">{name}</Heading>
-          {description && (
-            <Text color={textColor} fontSize="sm" noOfLines={2}>
-              {description}
-            </Text>
-          )}
+        <Image src={image} alt={name} w="100%" h="200px" objectFit="cover" />
+        <VStack p={4} align="stretch" spacing={3}>
+          <Text fontWeight="bold" fontSize="lg" noOfLines={1}>
+            {name}
+          </Text>
+          <Text fontSize="sm" color="gray.500" noOfLines={2}>
+            {description}
+          </Text>
+
+          {/* Game Stats */}
+          <HStack spacing={4} pt={2}>
+            <Tooltip label="Active Players">
+              <HStack spacing={1}>
+                <Icon as={FiUsers} color="blue.500" />
+                <Text fontSize="sm">{players}</Text>
+              </HStack>
+            </Tooltip>
+            <Tooltip label="Rating">
+              <HStack spacing={1}>
+                <Icon as={FiStar} color="yellow.500" />
+                <Text fontSize="sm">{rating}/5</Text>
+              </HStack>
+            </Tooltip>
+            <Tooltip label="Release Date">
+              <HStack spacing={1}>
+                <Icon as={FiClock} color="green.500" />
+                <Text fontSize="sm">{releaseDate}</Text>
+              </HStack>
+            </Tooltip>
+            {isNew && (
+              <Badge colorScheme="green" ml="auto">
+                NEW
+              </Badge>
+            )}
+          </HStack>
         </VStack>
       </Box>
-    </Box>
+    </Link>
   );
 }

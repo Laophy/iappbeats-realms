@@ -45,6 +45,12 @@ const GameGrid = ({ games, loading, showNewBadge }) => {
             url={game.url}
             image={game.image}
             description={game.description}
+            stats={{
+              players: game.players,
+              rating: game.rating,
+              releaseDate: game.releaseDate,
+              new: game.new,
+            }}
           />
           {showNewBadge && game.new && (
             <Badge

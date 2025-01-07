@@ -1,36 +1,37 @@
 import React from "react";
-import { Box, Grid, Heading, useColorModeValue } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
 import { GameCardTemplate } from "./GameCardTemplate";
-import { getTrendingGames } from "../data/games";
+import { getGamesByCategory } from "../data/games";
 
 export function SimilarGamesRow() {
   const bg = useColorModeValue("white", "gray.800");
-  const games = getTrendingGames().slice(0, 3); // Get top 3 trending games
+  const currentGame = window.location.pathname.split("/")[2];
+  const games = getGamesByCategory("Action").filter(
+    (game) => game.url !== `/${currentGame}`
+  );
 
   return (
-    <Box w="100%" bg={bg} borderRadius="xl" p={6} boxShadow="xl">
-      <Heading as="h3" size="lg" mb={6}>
+    <Box bg={bg} p={8} borderRadius="xl">
+      <Heading size="lg" mb={6}>
         Similar Games
       </Heading>
-      <Grid
-        templateColumns={{
-          base: "1fr",
-          md: "repeat(2, 1fr)",
-          lg: "repeat(4, 1fr)",
-        }}
-        gap={6}
-      >
-        {games.map((game) => (
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
+        {games.slice(0, 3).map((game) => (
           <GameCardTemplate
             key={game.url}
             name={game.name}
             url={game.url}
             image={game.image}
             description={game.description}
+            stats={{
+              players: game.players,
+              rating: game.rating,
+              releaseDate: game.releaseDate,
+              new: game.new,
+            }}
           />
         ))}
-        <GameCardTemplate name="Coming Soon" />
-      </Grid>
+      </SimpleGrid>
     </Box>
   );
 }
