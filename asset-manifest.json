@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/iappbeats-realms/static/css/main.4766d9a8.css",
-    "main.js": "/iappbeats-realms/static/js/main.ee17cbab.js",
+    "main.js": "/iappbeats-realms/static/js/main.69a257be.js",
     "static/js/496.aeec3cbc.chunk.js": "/iappbeats-realms/static/js/496.aeec3cbc.chunk.js",
     "static/media/etherion_background.jpg": "/iappbeats-realms/static/media/etherion_background.e984f830317b024ea6a4.jpg",
     "static/media/inter-latin-ext-600-normal.woff": "/iappbeats-realms/static/media/inter-latin-ext-600-normal.0acb54c755dec53de476.woff",
@@ -24,6 +24,7 @@
     "static/media/inter-cyrillic-ext-600-normal.woff": "/iappbeats-realms/static/media/inter-cyrillic-ext-600-normal.aa900fea9aed1ba3c903.woff",
     "static/media/inter-cyrillic-ext-500-normal.woff": "/iappbeats-realms/static/media/inter-cyrillic-ext-500-normal.9160d5ba9e6099f95032.woff",
     "static/media/inter-cyrillic-ext-700-normal.woff": "/iappbeats-realms/static/media/inter-cyrillic-ext-700-normal.3cf42e401103d3211022.woff",
+    "static/media/iappslogo.png": "/iappbeats-realms/static/media/iappslogo.66f69a87d96e96e27746.png",
     "static/media/inter-cyrillic-ext-400-normal.woff": "/iappbeats-realms/static/media/inter-cyrillic-ext-400-normal.e89451624c6caf35687f.woff",
     "static/media/inter-cyrillic-ext-700-normal.woff2": "/iappbeats-realms/static/media/inter-cyrillic-ext-700-normal.5631f054acb5a33a716a.woff2",
     "static/media/inter-cyrillic-ext-600-normal.woff2": "/iappbeats-realms/static/media/inter-cyrillic-ext-600-normal.25b7c495f686777a1c08.woff2",
@@ -63,11 +64,11 @@
     "static/media/inter-vietnamese-400-normal.woff2": "/iappbeats-realms/static/media/inter-vietnamese-400-normal.44c9df135eec470b0ab6.woff2",
     "index.html": "/iappbeats-realms/index.html",
     "main.4766d9a8.css.map": "/iappbeats-realms/static/css/main.4766d9a8.css.map",
-    "main.ee17cbab.js.map": "/iappbeats-realms/static/js/main.ee17cbab.js.map",
+    "main.69a257be.js.map": "/iappbeats-realms/static/js/main.69a257be.js.map",
     "496.aeec3cbc.chunk.js.map": "/iappbeats-realms/static/js/496.aeec3cbc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4766d9a8.css",
-    "static/js/main.ee17cbab.js"
+    "static/js/main.69a257be.js"
   ]
 }
