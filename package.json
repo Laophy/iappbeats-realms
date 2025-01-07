@@ -1,7 +1,7 @@
 {
   "name": "iappbeats-realms",
   "version": "0.1.0",
-  "homepage": "https://yourusername.github.io/repository-name",
+  "homepage": "https://laophy.github.io/iappbeats-realms",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
