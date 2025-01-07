@@ -46,7 +46,7 @@ export const gamesData = {
   westlaw: {
     name: "West Law",
     url: "/westlaw",
-    image: "https://i.imgur.com/Nj7e5ED.png",
+    image: "https://i.imgur.com/5muJkYE.png",
     description:
       "West Law is an online multiplayer game where players compete in intense PvP battles. Test your skills in this fast-paced combat arena!",
     gameUrl: "https://westlaw.iappsbeats.com/",
@@ -61,14 +61,14 @@ export const gamesData = {
   kalamonia: {
     name: "Kalamonia",
     url: "/kalamonia",
-    image: "https://i.imgur.com/YkkEK0w.png",
+    image: "https://i.imgur.com/cHLMe4M.png",
     description:
-      "Kalamonia (Bullet Tavern) is a fast-paced online multiplayer game featuring intense PvP combat. Challenge other players in this action-packed battle arena where quick reflexes and strategy are key to victory!",
+      "Kalamonia is a fast-paced online multiplayer game featuring intense PvP combat. Challenge other players in this action-packed battle arena where quick reflexes and strategy are key to victory!",
     gameUrl: "https://server4.iappsbeats.com/",
-    players: "428",
-    rating: 4.3,
-    releaseDate: "2024",
-    creator: "Stefan Knorr",
+    players: "123",
+    rating: 5,
+    releaseDate: "2025",
+    creator: "Justus",
     category: ["PvP", "Action", "Combat"],
     status: "online",
     altName: "Bullet Tavern",
