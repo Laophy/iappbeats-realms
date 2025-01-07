@@ -1,246 +1,120 @@
-import React from "react"
-import { GameCardTemplate } from "../components/GameCardTemplate"
+import React from "react";
+import {
+  Box,
+  Container,
+  SimpleGrid,
+  Heading,
+  useColorModeValue,
+  Skeleton,
+  Text,
+  VStack,
+  Badge,
+} from "@chakra-ui/react";
+import { GameCardTemplate } from "../components/GameCardTemplate";
+import {
+  getTrendingGames,
+  getGamesByCategory,
+  getNewGames,
+} from "../data/games";
 
-import Grid from '@mui/material/Grid';
+const GameGrid = ({ games, loading, showNewBadge }) => {
+  if (loading) {
+    return (
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
+        {[1, 2, 3, 4].map((i) => (
+          <Skeleton key={i} height="300px" borderRadius="lg" />
+        ))}
+      </SimpleGrid>
+    );
+  }
 
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import { Typography } from "@mui/material";
+  if (!games || games.length === 0) {
+    return (
+      <Box py={8} textAlign="center">
+        <Text color="gray.500">No games available in this category yet</Text>
+      </Box>
+    );
+  }
+
+  return (
+    <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
+      {games.map((game) => (
+        <Box key={game.url} position="relative">
+          <GameCardTemplate
+            name={game.name}
+            url={game.url}
+            image={game.image}
+            description={game.description}
+          />
+          {showNewBadge && game.new && (
+            <Badge
+              colorScheme="green"
+              position="absolute"
+              top={2}
+              right={2}
+              px={3}
+              py={1}
+              borderRadius="full"
+              boxShadow="md"
+            >
+              NEW
+            </Badge>
+          )}
+        </Box>
+      ))}
+    </SimpleGrid>
+  );
+};
 
 export function Games() {
-    const gameCardGrid = {
-        maring: 5,
-    }
-    return (
-        <div className="gamecards" style={gameCardGrid}>
-            <Box
-                sx={{
-                    display: 'flex',
-                    '& > :not(style)': {
-                        p: 1,
-                        width: '100%',
-                        borderRadius: 10,
-                        marginBottom: 5
-                    },
-                }}
-            >
-                <Paper elevation={4} style={{ marginTop: 15 }}>
-                    <Box p={1} style={{ textAlign: 'left', margin: 20 }}>
-                        <Typography variant="h3">Trending</Typography>
-                        <Grid sx={{ flexGrow: 1, marginTop: 5 }} container spacing={2}>
-                            <Grid item xs={12}>
-                                <Grid container justifyContent="center" spacing={3}>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Avalonia Online'} url={'/avalonia'} image={'https://play-lh.googleusercontent.com/6q2drlagWxmegGG8FrBw_7eRg-GrRo_jpQIj1ofTZ6r-Jj3iBX5u8mTgcazMt_0o_Q'} description={'Avalonia online is an MMORPG created by Stefan Knorr in 2015. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Corleone Online'} url={'/corleone'} image={'https://play-lh.googleusercontent.com/t4zp2bm9QsY8jpBaz0g5zMIed0mFZ5AwjsmImWW46x-qZ3yBrI5qPhzAQhrxzkng_J8=w526-h296-'} description={'Corleone online is an MMORPG created by Stefan Knorr in 2017. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Etherion Online'} url={'/etherion'} image={'https://cdn.cloudflare.steamstatic.com/steam/apps/2227990/ss_5dd4c284e52dde2608db60e13f6cd690f962c98f.1920x1080.jpg?t=1678488847'} description={'Etherion online is an MMORPG created by Stefan Knorr and Shiz in 2021. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Paper>
-            </Box>
-            <Box
-                sx={{
-                    display: 'flex',
-                    '& > :not(style)': {
-                        p: 1,
-                        width: '100%',
-                        borderRadius: 10,
-                        marginBottom: 5
-                    },
-                }}
-            >
-                <Paper elevation={4} style={{ marginTop: 15 }}>
-                    <Box p={1} style={{ textAlign: 'left', margin: 20 }}>
-                        <Typography variant="h3">Hosted Servers</Typography>
-                        <Grid sx={{ flexGrow: 1, marginTop: 5 }} container spacing={2}>
-                            <Grid item xs={12}>
-                                <Grid container justifyContent="center" spacing={3}>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Avalonia Online'} url={'/avalonia'} image={'https://play-lh.googleusercontent.com/6q2drlagWxmegGG8FrBw_7eRg-GrRo_jpQIj1ofTZ6r-Jj3iBX5u8mTgcazMt_0o_Q'} description={'Avalonia online is an MMORPG created by Stefan Knorr in 2015. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Corleone Online'} url={'/corleone'} image={'https://play-lh.googleusercontent.com/t4zp2bm9QsY8jpBaz0g5zMIed0mFZ5AwjsmImWW46x-qZ3yBrI5qPhzAQhrxzkng_J8=w526-h296-'} description={'Corleone online is an MMORPG created by Stefan Knorr in 2017. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Etherion Online'} url={'/etherion'} image={'https://cdn.cloudflare.steamstatic.com/steam/apps/2227990/ss_5dd4c284e52dde2608db60e13f6cd690f962c98f.1920x1080.jpg?t=1678488847'} description={'Etherion online is an MMORPG created by Stefan Knorr and Shiz in 2021. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Paper>
-            </Box>
-            <Box
-                sx={{
-                    display: 'flex',
-                    '& > :not(style)': {
-                        p: 1,
-                        width: '100%',
-                        borderRadius: 10,
-                        marginBottom: 5
-                    },
-                }}
-            >
-                <Paper elevation={4} style={{ marginTop: 15 }}>
-                    <Box p={1} style={{ textAlign: 'left', margin: 20 }}>
-                        <Typography variant="h3">Action</Typography>
-                        <Grid sx={{ flexGrow: 1, marginTop: 5 }} container spacing={2}>
-                            <Grid item xs={12}>
-                                <Grid container justifyContent="center" spacing={3}>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Avalonia Online'} url={'/avalonia'} image={'https://play-lh.googleusercontent.com/6q2drlagWxmegGG8FrBw_7eRg-GrRo_jpQIj1ofTZ6r-Jj3iBX5u8mTgcazMt_0o_Q'} description={'Avalonia online is an MMORPG created by Stefan Knorr in 2015. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Corleone Online'} url={'/corleone'} image={'https://play-lh.googleusercontent.com/t4zp2bm9QsY8jpBaz0g5zMIed0mFZ5AwjsmImWW46x-qZ3yBrI5qPhzAQhrxzkng_J8=w526-h296-'} description={'Corleone online is an MMORPG created by Stefan Knorr in 2017. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Etherion Online'} url={'/etherion'} image={'https://cdn.cloudflare.steamstatic.com/steam/apps/2227990/ss_5dd4c284e52dde2608db60e13f6cd690f962c98f.1920x1080.jpg?t=1678488847'} description={'Etherion online is an MMORPG created by Stefan Knorr and Shiz in 2021. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Paper>
-            </Box>
-            <Box
-                sx={{
-                    display: 'flex',
-                    '& > :not(style)': {
-                        p: 1,
-                        width: '100%',
-                        borderRadius: 10,
-                        marginBottom: 5
-                    },
-                }}
-            >
-                <Paper elevation={4} style={{ marginTop: 15 }}>
-                    <Box p={1} style={{ textAlign: 'left', margin: 20 }}>
-                        <Typography variant="h3">New</Typography>
-                        <Grid sx={{ flexGrow: 1, marginTop: 5 }} container spacing={2}>
-                            <Grid item xs={12}>
-                                <Grid container justifyContent="center" spacing={3}>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Avalonia Online'} url={'/avalonia'} image={'https://play-lh.googleusercontent.com/6q2drlagWxmegGG8FrBw_7eRg-GrRo_jpQIj1ofTZ6r-Jj3iBX5u8mTgcazMt_0o_Q'} description={'Avalonia online is an MMORPG created by Stefan Knorr in 2015. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Corleone Online'} url={'/corleone'} image={'https://play-lh.googleusercontent.com/t4zp2bm9QsY8jpBaz0g5zMIed0mFZ5AwjsmImWW46x-qZ3yBrI5qPhzAQhrxzkng_J8=w526-h296-'} description={'Corleone online is an MMORPG created by Stefan Knorr in 2017. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Etherion Online'} url={'/etherion'} image={'https://cdn.cloudflare.steamstatic.com/steam/apps/2227990/ss_5dd4c284e52dde2608db60e13f6cd690f962c98f.1920x1080.jpg?t=1678488847'} description={'Etherion online is an MMORPG created by Stefan Knorr and Shiz in 2021. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Paper>
-            </Box>
-            <Box
-                sx={{
-                    display: 'flex',
-                    '& > :not(style)': {
-                        p: 1,
-                        width: '100%',
-                        borderRadius: 10,
-                        marginBottom: 5
-                    },
-                }}
-            >
-                <Paper elevation={4} style={{ marginTop: 15 }}>
-                    <Box p={1} style={{ textAlign: 'left', margin: 20 }}>
-                        <Typography variant="h3">Adventure</Typography>
-                        <Grid sx={{ flexGrow: 1, marginTop: 5 }} container spacing={2}>
-                            <Grid item xs={12}>
-                                <Grid container justifyContent="center" spacing={3}>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Avalonia Online'} url={'/avalonia'} image={'https://play-lh.googleusercontent.com/6q2drlagWxmegGG8FrBw_7eRg-GrRo_jpQIj1ofTZ6r-Jj3iBX5u8mTgcazMt_0o_Q'} description={'Avalonia online is an MMORPG created by Stefan Knorr in 2015. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Corleone Online'} url={'/corleone'} image={'https://play-lh.googleusercontent.com/t4zp2bm9QsY8jpBaz0g5zMIed0mFZ5AwjsmImWW46x-qZ3yBrI5qPhzAQhrxzkng_J8=w526-h296-'} description={'Corleone online is an MMORPG created by Stefan Knorr in 2017. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Etherion Online'} url={'/etherion'} image={'https://cdn.cloudflare.steamstatic.com/steam/apps/2227990/ss_5dd4c284e52dde2608db60e13f6cd690f962c98f.1920x1080.jpg?t=1678488847'} description={'Etherion online is an MMORPG created by Stefan Knorr and Shiz in 2021. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Paper>
-            </Box>
-            <Box
-                sx={{
-                    display: 'flex',
-                    '& > :not(style)': {
-                        p: 1,
-                        width: '100%',
-                        borderRadius: 10,
-                        marginBottom: 5
-                    },
-                }}
-            >
-                <Paper elevation={4} style={{ marginTop: 15 }}>
-                    <Box p={1} style={{ textAlign: 'left', margin: 20 }}>
-                        <Typography variant="h3">Creative Worlds</Typography>
-                        <Grid sx={{ flexGrow: 1, marginTop: 5 }} container spacing={2}>
-                            <Grid item xs={12}>
-                                <Grid container justifyContent="center" spacing={3}>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Avalonia Online'} url={'/avalonia'} image={'https://play-lh.googleusercontent.com/6q2drlagWxmegGG8FrBw_7eRg-GrRo_jpQIj1ofTZ6r-Jj3iBX5u8mTgcazMt_0o_Q'} description={'Avalonia online is an MMORPG created by Stefan Knorr in 2015. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Corleone Online'} url={'/corleone'} image={'https://play-lh.googleusercontent.com/t4zp2bm9QsY8jpBaz0g5zMIed0mFZ5AwjsmImWW46x-qZ3yBrI5qPhzAQhrxzkng_J8=w526-h296-'} description={'Corleone online is an MMORPG created by Stefan Knorr in 2017. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Etherion Online'} url={'/etherion'} image={'https://cdn.cloudflare.steamstatic.com/steam/apps/2227990/ss_5dd4c284e52dde2608db60e13f6cd690f962c98f.1920x1080.jpg?t=1678488847'} description={'Etherion online is an MMORPG created by Stefan Knorr and Shiz in 2021. Enjoy thousands of players!'} />
-                                    </Grid>
-                                    <Grid item>
-                                        <GameCardTemplate name={'Coming Soon'} />
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Paper>
-            </Box>
-        </div>
-    )
+  const bg = useColorModeValue("white", "gray.800");
+  const [loading, setLoading] = React.useState(true);
+  const [trendingGames, setTrendingGames] = React.useState([]);
+  const [newGames, setNewGames] = React.useState([]);
+  const [actionGames, setActionGames] = React.useState([]);
+  const [adventureGames, setAdventureGames] = React.useState([]);
+
+  React.useEffect(() => {
+    const loadGames = async () => {
+      setLoading(true);
+      try {
+        setTrendingGames(getTrendingGames());
+        setNewGames(getNewGames());
+        setActionGames(getGamesByCategory("Action"));
+        setAdventureGames(getGamesByCategory("Adventure"));
+      } catch (error) {
+        console.error("Error loading games:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadGames();
+  }, []);
+
+  return (
+    <Container maxW="container.xl" py={8}>
+      <VStack spacing={8} align="stretch">
+        <Box bg={bg} borderRadius="xl" p={8}>
+          <Heading mb={6}>New Games</Heading>
+          <GameGrid games={newGames} loading={loading} showNewBadge />
+        </Box>
+
+        <Box bg={bg} borderRadius="xl" p={8}>
+          <Heading mb={6}>Trending</Heading>
+          <GameGrid games={trendingGames} loading={loading} showNewBadge />
+        </Box>
+
+        <Box bg={bg} borderRadius="xl" p={8}>
+          <Heading mb={6}>Action Games</Heading>
+          <GameGrid games={actionGames} loading={loading} showNewBadge />
+        </Box>
+
+        <Box bg={bg} borderRadius="xl" p={8}>
+          <Heading mb={6}>Adventure Games</Heading>
+          <GameGrid games={adventureGames} loading={loading} showNewBadge />
+        </Box>
+      </VStack>
+    </Container>
+  );
 }
